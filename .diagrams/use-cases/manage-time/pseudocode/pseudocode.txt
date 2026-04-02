@@ -1,0 +1,68 @@
+requestDto {
+    category,
+    startDateTime,
+    endDateTime,
+    title,
+    description
+}
+
+createRequest(requestDto) {
+    if(!valid(requestDto)) {
+        throw error
+    }
+
+    createRequestEntity(requestDto)
+    sendEmailToManager()
+}
+
+getRequests(employeeUuid) {
+    return findEmployeeRequests(employeeUuid)
+}
+
+withdrawRequest(requestUuid) {
+    if(!findRequest(requestUuid)) {
+        throw error
+    }
+
+    sendEmailToManager()
+    return setRequestStatus(requestUuid, "withdrawn")
+}
+
+
+cancelApprovedRequest(requestUuid, explanation) {
+    request = findRequest(requestUuid)
+    if(!request) {
+        throw error
+    }
+
+    if(!valid(request)) {
+        throw error
+    }
+
+    sendEmailToManager()
+    setRequestStatus(requestUuid, "cancelled", explanation)
+    updateEmployeeTimeAllowance()
+    return
+}
+
+editREquestDto {
+    title,
+    comment,
+    startDate,
+    endDate
+}
+
+editRequest(editREquestDto, requestUuid) {
+    request = findRequest(requestUuid)
+    if(!request) {
+        throw error
+    }
+
+    if(!valid(editREquestDto)) {
+        throw error
+    }
+    
+    updateRequest(editREquestDto, requestUuid)
+    return
+}
+
