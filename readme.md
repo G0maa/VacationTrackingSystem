@@ -21,10 +21,11 @@
 2. Improve internal business processes of the organization (with respect to vacation time tracking).
 3. Save time & Money for HR Department.
 
-
 # Constraints
 1. Web Application
 2. Extend existent intranet
+3. Use existing hardware
+4. Apply company policies for vacations
 
 # Domain (Define Problem)
 1. Employees work on many different projects
@@ -40,14 +41,7 @@
 # Use-cases
 
 ## Manage Time
-
-### Entities (Data Model)
-
-### Flowcharts (flow)
-
-### Sequence Diagrams
-
-### Pseudocode
+1. For ERD, Flowcharts, Sequence diagrams and Pseudocode, refer to `.diagrams` directory.
 
 # Resources
 1. Object Oriented Analysis and Design (OOAD) Chapter - 12
