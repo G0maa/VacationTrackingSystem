@@ -1,0 +1,90 @@
+createVacationDto {
+    category,
+    startDateTime,
+    endDateTime,
+    title,
+    description
+}
+
+createVacation(createVacationDto, employeeUuid) {
+    if(!valid(createVacationDto)) {
+        throw error
+    }
+
+    employee = findEmployee(employeeUuid)
+
+    vacation = createVacationEntity(createVacationDto, "pending")
+    createVacationRequest(vacation.uuid, employee.managerUuid)
+    sendEmailToManager()
+}
+
+getVacatons(employeeUuid) {
+    return findEmployeeVacations(employeeUuid)
+}
+
+getVacationRequests(managerUuid) {
+    return findManagerVacationRequests(managerUuid)
+}
+
+cancelVacation(vacationUuid, explanation) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    // e.g. time limits
+    if(!valid(vacation)) {
+        throw error
+    }
+
+    if(vacation.status == 'pending') {
+        deleteVacationRequest()
+        setVacationStatus(vacationUuid, "cancelled")
+        return
+    }
+
+    setVacationStatus(vacationUuid, "cancelled")
+    updateEmployeeTimeAllowance()
+    sendEmailToManager()
+    return
+}
+
+editVacationDto {
+    title,
+    comment,
+    startDate,
+    endDate
+}
+
+editVacation(editVacationDto, vacationUuid) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    if(vacation.status !== 'pending') {
+        throw error
+    }
+
+    if(!valid(editVacationDto)) {
+        throw error
+    }
+    
+    updateVacation(editVacationDto, vacationUuid)
+    return
+}
+
+approveVacationRequest(vacationRequestUuid) {
+    vacationRequest = findVacationRequest(vacationRequestUuid)
+    if(!vacationRequest) {
+        throw error
+    }
+
+    if(vacationRequest.vacation.status !== 'pending') {
+        throw error
+    }
+    
+    setVacationStatus(vacationRequest.vacationUuid, "approved")
+    sendEmailToEmployee()
+    return
+}
