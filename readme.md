@@ -83,18 +83,23 @@
 ### Diagrams
 
 #### ERD
-1. ![ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
+1. Changed ERD
+![ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
 
 #### Pseudocode
-1. [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
+1. Link to Pseudocode: [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
 
 #### Sequence Diagrams
-1. ![Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
-2. ![Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
-3. ![Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
+1. Create Vacation Request
+![Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
+2. Approve Vacation Request (HR Side) 
+![Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
+3. Approve Vacation Request (Manager Side)
+![Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
 
 #### State Machine Diagrams
-1. ![State Machine Diagram](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagrams/states-of-vacation-request.png)
+States of Vacation Request
+![State Machine Diagram](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagrams/states-of-vacation-request.png)
 
 # Resources
 1. Object Oriented Analysis and Design (OOAD) Chapter - 12
