@@ -86,7 +86,7 @@
 1. ![ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
 
 #### Pseudocode
-1. ![Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
+1. [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
 
 #### Sequence Diagrams
 1. ![Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
