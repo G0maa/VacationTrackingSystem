@@ -1,0 +1,108 @@
+createVacationDto {
+    category,
+    startDateTime,
+    endDateTime,
+    title,
+    description
+}
+
+createVacation(createVacationDto, employeeUuid) {
+    if(!valid(createVacationDto)) {
+        throw error
+    }
+
+    employee = findEmployee(employeeUuid)
+
+    vacation = createVacationEntity(createVacationDto, "pending")
+    createVacationRequest(vacation.uuid, employee.managerUuid)
+    sendEmailToHR()
+}
+
+getVacationRequests(managerUuid) {
+    return findManagerVacationRequests(managerUuid)
+}
+
+getVacationRequests(employeeUuid) {
+    return findEmployeeVacationRequests(employeeUuid)
+}
+
+getVacationRequests(hrUuid) {
+    return findHrVacationRequests(hrUuid)
+}
+
+
+approveVacationRequest(vacationRequestUuid, approvedByUuid) {
+    vacationRequest = findVacationRequest(vacationRequestUuid)
+    if(!vacationRequest) {
+        throw error
+    }
+
+    if(vacationRequest.vacation.status !== 'pending') {
+        throw error
+    }
+
+    if(approvedByUuid === vacationRequest.hrUuid && vacationRequest.vacation.status === "pending") {
+        setVacationStatus(vacationRequest.vacationUuid, "hr_approved")
+        sendEmailToEmployee()
+        return
+    }
+
+    if(approvedByUuid === vacationRequest.managerUuid && vacationRequest.vacation.status === "hr_approved") {
+        setVacationStatus(vacationRequest.vacationUuid, "approved")
+        sendEmailToEmployee()
+        return
+    }
+
+    throw error
+}
+
+// Same as old logic
+
+cancelVacation(vacationUuid, explanation) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    // e.g. time limits
+    if(!valid(vacation)) {
+        throw error
+    }
+
+    if(vacation.status == 'pending') {
+        deleteVacationRequest()
+        setVacationStatus(vacationUuid, "cancelled")
+        return
+    }
+
+    setVacationStatus(vacationUuid, "cancelled")
+    updateEmployeeTimeAllowance()
+    sendEmailToManager()
+    return
+}
+
+editVacationDto {
+    title,
+    comment,
+    startDate,
+    endDate
+}
+
+editVacation(editVacationDto, vacationUuid) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    if(vacation.status !== 'pending') {
+        throw error
+    }
+
+    if(!valid(editVacationDto)) {
+        throw error
+    }
+    
+    updateVacation(editVacationDto, vacationUuid)
+    return
+}
+

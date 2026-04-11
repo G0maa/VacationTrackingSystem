@@ -43,5 +43,38 @@
 ## Manage Time
 1. For ERD, Flowcharts, Sequence diagrams and Pseudocode, refer to `.diagrams` directory.
 
+# Challenges
+## What if we were to add more approval levels (e.g. HR approval)?
+1. Assumptions
+   1. Manager approval takes precedence.
+2. Changes
+   1. Database & ERD:
+      1. Seed two more statuses: `HR_PENDING` and `HR_APPROVED`.
+      2. Add HR FK to `vacation_requests` table
+   2. Create requests API:
+      1. Send email to HR
+      2. Set status to `HR_PENDING`
+   3. Approve requests API:
+      1. If HR approves, set status to `HR_APPROVED`, and send Email to Manager.
+      2. If Manager approves, set status to `APPROVED`, send email to Employee.
+      3. Otherwise, throw.
+   4. Get Pending Vacation Requests API:
+      1. Get relevant pending vacation requests to Employee, HR or Manager.
+### Diagrams
+
+#### ERD
+1. [ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
+
+#### Pseudocode
+1. [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
+
+#### Sequence Diagrams
+1. [Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
+2. [Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
+3. [Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
+
+#### State Machine Diagrams
+1. [State Machine Diagram](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagram/state-machine-diagram.png)
+
 # Resources
 1. Object Oriented Analysis and Design (OOAD) Chapter - 12
