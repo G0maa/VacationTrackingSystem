@@ -1,3 +1,23 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Vision](#vision)
+- [Functional requirements](#functional-requirements)
+- [Non-functional requirements](#non-functional-requirements)
+- [Constraints](#constraints)
+- [Domain (Define Problem)](#domain-define-problem)
+- [Actors](#actors)
+- [Use-cases](#use-cases)
+  - [Manage Time](#manage-time)
+- [Challenges](#challenges)
+  - [What if we were to add more approval levels (e.g. HR approval)?](#what-if-we-were-to-add-more-approval-levels-eg-hr-approval)
+    - [Diagrams](#diagrams)
+      - [ERD](#erd)
+      - [Pseudocode](#pseudocode)
+      - [Sequence Diagrams](#sequence-diagrams)
+      - [State Machine Diagrams](#state-machine-diagrams)
+- [Resources](#resources)
+
 # Vision
 1. A Vacation Tracking System (VTS) will provide individual employees with the capability to manage their own vacation time, sick leave, and personal time off, without having to be an expert in company policy or the local facility’s leave policies.
 
@@ -63,18 +83,18 @@
 ### Diagrams
 
 #### ERD
-1. [ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
+1. ![ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
 
 #### Pseudocode
-1. [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
+1. ![Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
 
 #### Sequence Diagrams
-1. [Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
-2. [Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
-3. [Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
+1. ![Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
+2. ![Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
+3. ![Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
 
 #### State Machine Diagrams
-1. [State Machine Diagram](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagram/state-machine-diagram.png)
+1. ![State Machine Diagram](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagrams/states-of-vacation-request.png)
 
 # Resources
 1. Object Oriented Analysis and Design (OOAD) Chapter - 12
