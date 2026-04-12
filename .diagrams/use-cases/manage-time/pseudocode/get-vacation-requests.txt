@@ -1,0 +1,11 @@
+getVacationRequests(managerUuid) {
+    return findManagerVacationRequests(managerUuid)
+}
+
+getVacationRequests(employeeUuid) {
+    return findEmployeeVacationRequests(employeeUuid)
+}
+
+getVacationRequests(hrUuid) {
+    return findHrVacationRequests(hrUuid)
+}

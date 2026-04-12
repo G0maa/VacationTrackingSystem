@@ -1,3 +1,29 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Vision](#vision)
+- [Functional requirements](#functional-requirements)
+- [Non-functional requirements](#non-functional-requirements)
+- [Constraints](#constraints)
+- [Domain (Define Problem)](#domain-define-problem)
+- [Actors](#actors)
+- [Use-cases](#use-cases)
+  - [Manage Time](#manage-time)
+    - [UI](#ui)
+    - [Flows](#flows)
+      - [Create new Vacation Request](#create-new-vacation-request)
+      - [Withdraw Vacation Request](#withdraw-vacation-request)
+      - [Cancel Vacation Request](#cancel-vacation-request)
+      - [Edit Pending Vacation Request](#edit-pending-vacation-request)
+- [Challenges](#challenges)
+  - [What if we were to add more approval levels (e.g. HR approval)?](#what-if-we-were-to-add-more-approval-levels-eg-hr-approval)
+    - [Diagrams](#diagrams)
+      - [ERD](#erd)
+      - [Pseudocode](#pseudocode)
+      - [Sequence Diagrams](#sequence-diagrams)
+      - [State Machine Diagrams](#state-machine-diagrams)
+- [Resources](#resources)
+
 # Vision
 1. A Vacation Tracking System (VTS) will provide individual employees with the capability to manage their own vacation time, sick leave, and personal time off, without having to be an expert in company policy or the local facility’s leave policies.
 
@@ -41,7 +67,70 @@
 # Use-cases
 
 ## Manage Time
-1. For ERD, Flowcharts, Sequence diagrams and Pseudocode, refer to `.diagrams` directory.
+
+### UI
+1. [Example of UI](./.diagrams/use-cases/manage-time/ui/example-ui.png)
+
+### Flows
+
+#### Create new Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/create-new-request.png)
+2. Sequence Diagrams
+   1. [Authentication](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+   2. [Create Request](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+   3. [Manager Approve Request](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+3. Pseudocode
+   1. [Create new Request](./.diagrams/use-cases/manage-time/pseudocode/create-new-request.txt)
+   2. [Manager Approve Request](./.diagrams/use-cases/manage-time/pseudocode/approve-vacation-request.txt)
+   3. [Get Vacation Requests](./.diagrams/use-cases/manage-time/pseudocode/get-vacation-requests.txt)
+
+#### Withdraw Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/withdraw-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/withdraw-pending-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/withdraw-request.txt)
+
+#### Cancel Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/cancel-approved-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/cancel-approved-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/cancel-approved-request.txt)
+
+#### Edit Pending Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/edit-pending-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/edit-pending-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/edit-pending-request.txt)
+
+# Challenges
+## What if we were to add more approval levels (e.g. HR approval)?
+1. Assumptions
+   1. Manager approval takes precedence.
+2. Changes
+   1. Database & ERD:
+      1. Seed two more statuses: `HR_PENDING` and `HR_APPROVED`.
+      2. Add HR FK to `vacation_requests` table
+   2. Create requests API:
+      1. Send email to HR
+      2. Set status to `HR_PENDING`
+   3. Approve requests API:
+      1. If HR approves, set status to `HR_APPROVED`, and send Email to Manager.
+      2. If Manager approves, set status to `APPROVED`, send email to Employee.
+      3. Otherwise, throw.
+   4. Get Pending Vacation Requests API:
+      1. Get relevant pending vacation requests to Employee, HR or Manager.
+### Diagrams
+
+#### ERD
+1. Changed [ERD Diagram](./.diagrams/use-cases/challenges/extend-request-states/erd/erd.png)
+
+#### Pseudocode
+1. Link to Pseudocode: [Pseudocode](./.diagrams/use-cases/challenges/extend-request-states/pseudocode/pseudocode.txt)
+
+#### Sequence Diagrams
+1. [Create Request](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/create-request.png)
+2. [Approve Request (HR)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-hr.png)
+3. [Approve Request (Manager)](./.diagrams/use-cases/challenges/extend-request-states/sequence-diagrams/approve-request-manager.png)
+
+#### State Machine Diagrams
+1. [States of Vacation Request](./.diagrams/use-cases/challenges/extend-request-states/state-machine-diagrams/states-of-vacation-request.png)
 
 # Resources
 1. Object Oriented Analysis and Design (OOAD) Chapter - 12

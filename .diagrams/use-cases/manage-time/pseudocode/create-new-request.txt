@@ -1,0 +1,19 @@
+createVacationDto {
+    category,
+    startDateTime,
+    endDateTime,
+    title,
+    description
+}
+
+createVacation(createVacationDto, employeeUuid) {
+    if(!valid(createVacationDto)) {
+        throw error
+    }
+
+    employee = findEmployee(employeeUuid)
+
+    vacation = createVacationEntity(createVacationDto, "pending")
+    createVacationRequest(vacation.uuid, employee.managerUuid)
+    sendEmailToManager()
+}

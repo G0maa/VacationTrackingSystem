@@ -1,0 +1,24 @@
+editVacationDto {
+    title,
+    comment,
+    startDate,
+    endDate
+}
+
+editVacation(editVacationDto, vacationUuid) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    if(vacation.status !== 'pending') {
+        throw error
+    }
+
+    if(!valid(editVacationDto)) {
+        throw error
+    }
+    
+    updateVacation(editVacationDto, vacationUuid)
+    return
+}
