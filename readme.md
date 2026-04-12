@@ -9,6 +9,7 @@
 - [Actors](#actors)
 - [Use-cases](#use-cases)
   - [Manage Time](#manage-time)
+    - [UI](#ui)
     - [Flows](#flows)
       - [Create new Vacation Request](#create-new-vacation-request)
       - [Withdraw Vacation Request](#withdraw-vacation-request)
@@ -66,6 +67,9 @@
 # Use-cases
 
 ## Manage Time
+
+### UI
+1. [Example of UI](./.diagrams/use-cases/manage-time/ui/example-ui.png)
 
 ### Flows
 
