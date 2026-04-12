@@ -1,0 +1,14 @@
+approveVacationRequest(vacationRequestUuid) {
+    vacationRequest = findVacationRequest(vacationRequestUuid)
+    if(!vacationRequest) {
+        throw error
+    }
+
+    if(vacationRequest.vacation.status !== 'pending') {
+        throw error
+    }
+
+    setVacationStatus(vacationRequest.vacationUuid, "approved")
+    sendEmailToEmployee()
+    return
+}

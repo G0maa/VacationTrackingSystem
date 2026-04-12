@@ -1,0 +1,16 @@
+cancelVacation(vacationUuid, explanation) {
+    vacation = findVacation(vacationUuid)
+    if(!vacation) {
+        throw error
+    }
+
+    // e.g. time limits
+    if(!valid(vacation)) {
+        throw error
+    }
+
+    deleteVacationRequest()
+    setVacationStatus(vacationUuid, "cancelled")
+
+    return
+}

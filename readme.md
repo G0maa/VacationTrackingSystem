@@ -9,6 +9,11 @@
 - [Actors](#actors)
 - [Use-cases](#use-cases)
   - [Manage Time](#manage-time)
+    - [Flows](#flows)
+      - [Create new Vacation Request](#create-new-vacation-request)
+      - [Withdraw Vacation Request](#withdraw-vacation-request)
+      - [Cancel Vacation Request](#cancel-vacation-request)
+      - [Edit Pending Vacation Request](#edit-pending-vacation-request)
 - [Challenges](#challenges)
   - [What if we were to add more approval levels (e.g. HR approval)?](#what-if-we-were-to-add-more-approval-levels-eg-hr-approval)
     - [Diagrams](#diagrams)
@@ -61,7 +66,34 @@
 # Use-cases
 
 ## Manage Time
-1. For ERD, Flowcharts, Sequence diagrams and Pseudocode, refer to `.diagrams` directory.
+
+### Flows
+
+#### Create new Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/create-new-request.png)
+2. Sequence Diagrams
+   1. [Authentication](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+   2. [Create Request](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+   3. [Manager Approve Request](./.diagrams/use-cases/manage-time/sequence-diagrams/create-new-request.png)
+3. Pseudocode
+   1. [Create new Request](./.diagrams/use-cases/manage-time/pseudocode/create-new-request.txt)
+   2. [Manager Approve Request](./.diagrams/use-cases/manage-time/pseudocode/approve-vacation-request.txt)
+   3. [Get Vacation Requests](./.diagrams/use-cases/manage-time/pseudocode/get-vacation-requests.txt)
+
+#### Withdraw Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/withdraw-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/withdraw-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/withdraw-request.txt)
+
+#### Cancel Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/cancel-approved-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/cancel-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/cancel-approved-request.txt)
+
+#### Edit Pending Vacation Request
+1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/edit-pending-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/edit-pending-request.png)
+3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/edit-pending-request.txt)
 
 # Challenges
 ## What if we were to add more approval levels (e.g. HR approval)?
