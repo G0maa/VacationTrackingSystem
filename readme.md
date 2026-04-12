@@ -82,12 +82,12 @@
 
 #### Withdraw Vacation Request
 1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/withdraw-request.png)
-2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/withdraw-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/withdraw-pending-request.png)
 3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/withdraw-request.txt)
 
 #### Cancel Vacation Request
 1. [Flowchart](./.diagrams/use-cases/manage-time/flowcharts/cancel-approved-request.png)
-2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/cancel-request.png)
+2. [Sequence Diagram](./.diagrams/use-cases/manage-time/sequence-diagrams/cancel-approved-request.png)
 3. [Pseudocode](./.diagrams/use-cases/manage-time/pseudocode/cancel-approved-request.txt)
 
 #### Edit Pending Vacation Request
